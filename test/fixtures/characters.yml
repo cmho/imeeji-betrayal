@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  username: MyString
+  unit_id: 1
+  stat_build_id: 1
+  speed: 1
+  might: 1
+  knowledge: 1
+  sanity: 1
+  discovery_points: 1
+
+two:
+  name: MyString
+  username: MyString
+  unit_id: 1
+  stat_build_id: 1
+  speed: 1
+  might: 1
+  knowledge: 1
+  sanity: 1
+  discovery_points: 1

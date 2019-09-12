@@ -1,0 +1,15 @@
+<div class="content">
+    <h2>Edit Run</h2>
+    <%= form_with model: @run, url: run_update_path, method: 'POST', class: 'new-run-form' do |f| %>
+        <div class="form-item">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+        </div>
+        <div class="form-item">
+            <%= f.label :character_ids, "Characters" %>
+            <%= collection_select(:run, :character_ids, Character.all.order("name ASC"), :id, :name, {:selected => @run.character_ids}, {:multiple => true}) %>
+        </div>
+        <%= f.hidden_field :id %>
+        <input type="submit" value="Save" />
+    <% end %>
+</div>

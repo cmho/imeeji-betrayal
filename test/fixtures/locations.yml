@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  location_north_id: 1
+  location_south_id: 1
+  location_west_id: 1
+  location_east_id: 1
+  location_up_id: 1
+  location_down_id: 1
+  discovered: false
+
+two:
+  name: MyString
+  location_north_id: 1
+  location_south_id: 1
+  location_west_id: 1
+  location_east_id: 1
+  location_up_id: 1
+  location_down_id: 1
+  discovered: false

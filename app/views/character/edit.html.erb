@@ -1,0 +1,22 @@
+<div class="content">
+    <h2>Edit Character</h2>
+    <%= form_with model: @character, url: character_index_path, class: 'new-character-form' do |f| %>
+        <div class="form-item">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+        </div>
+        <div class="form-item">
+            <%= f.label :username %>
+            <%= f.text_field :username %>
+        </div>
+        <div class="form-item">
+            <%= f.label :unit_id, "Unit" %>
+            <%= collection_select :character, :unit_id, Unit.all, :id, :name %>
+        </div>
+        <div class="form-item">
+            <%= f.label :stat_build_id, "Stat Build" %>
+            <%= collection_select :character, :stat_build_id, StatBuild.all, :id, :name, {:selected => :stat_build_id} %>
+        </div>
+        <input type="submit" value="Save" />
+    <% end %>
+</div>

@@ -1,0 +1,61 @@
+<div class="run-content">
+    <h2><%= @run.name %></h2>
+    <% @run.characters.order("name ASC").each do |char| %>
+        <h3><div class="circle" style="background-color: <%= char.unit.color %>"></div> <%= char.name %> (<%= char.username%>)<%= char.traitor? ? ' 😈' : '' %></h3>
+            <div class="char-content" data-char="<%= char.id %>">
+            <p><b>Location:</b> <span class="location-content"><span class="location-name"><%= char.location.name %></span><span class="location-links"><% if char.location.location_up_id %> <a href="#" class="up" data-char="<%= char.id %>" data-new-loc="<%= char.location.location_up_id %>">[up]</a><% end %><% if char.location.location_down_id %> <a href="#" class="down" data-char="<%= char.id %>" data-new-loc="<%= char.location.location_down_id %>">[down]</a><% end %><% if char.location.location_north_id %> <a href="#" class="north" data-char="<%= char.id %>" data-new-loc="<%= char.location.location_north_id %>">[north]</a><% end %><% if char.location.location_south_id %> <a href="#" class="south" data-char="<%= char.id %>" data-new-loc="<%= char.location.location_south_id %>">[south]</a><% end %><% if char.location.location_east_id %> <a href="#" class="east" data-char="<%= char.id %>" data-new-loc="<%= char.location.location_east_id %>">[east]</a><% end %><% if char.location.location_west_id %> <a href="#" class="west" data-char="<%= char.id %>" data-new-loc="<%= char.location.location_west_id %>">[west]</a><% end %></span></span></p>
+            <p style="display: none" class="traitor-menu">
+                <b>Location Jump:</b>
+                <select name="location">
+                    <% @locations.each do |location| %>
+                        <option value="<%= location.id %>"<%= location.id == char.location.id ? ' selected=selected' : '' %>><%= location.name %></option>
+                    <% end %>
+                </select>
+            </p>
+            <p class="stats">
+                <span><b>Speed:</b> <%= char.cur_spd != 0 ? eval("char.stat_build.spd_#{char.cur_spd}") : "💀" %></span>
+                <span><b>Sanity:</b> <%= char.cur_san != 0 ? eval("char.stat_build.san_#{char.cur_san}") : "💀" %></span>
+                <span><b>Might:</b> <%= char.cur_mgt != 0 ? eval("char.stat_build.mgt_#{char.cur_mgt}") : "💀" %></span>
+                <span><b>Knowledge:</b> <%= char.cur_kno != 0 ? eval("char.stat_build.kno_#{char.cur_kno}") : "💀" %></span>
+            </p>
+            <div class="mod-form">
+                <form>
+                    <div class="form-item">
+                        <label for="speed">Speed</label> <input type="number" name="speed" />
+                    </div>
+                    <div class="form-item">
+                        <label for="sanity">Sanity</label> <input type="number" name="sanity" />
+                    </div>
+                    <div class="form-item">
+                        <label for="might">Might</label> <input type="number" name="might" />
+                    </div>
+                    <div class="form-item">
+                        <label for="knowledge">Knowledge</label> <input type="number" name="knowledge" />
+                    </div>
+                    <input type="submit" value="Modify" />
+                </form>
+            </div>
+            <h4>Items</h4>
+            <ul class="items">
+                <% if char.items.count > 0 %>
+                    <% char.items.each do |item | %>
+                        <li><b><%= item.name %> <a href="#" class="discard" data-item="<%= item.id %>%">[x]</a></b><div><%= item.desc %></div></li>
+                    <% end %>
+                <% end %>
+            </ul>
+            <p><button type="button" class="add-open">Add Item</button></p>
+            <div class="add-form">
+                <h4>Add Item</h4>
+                <form>
+                    <div class="form-item">
+                        <label for="name">Item Name</label> <input type="text" name="name" />
+                    </div>
+                    <div class="form-item">
+                        <label for="desc">Description</label> <textarea name="desc"></textarea>
+                    </div>
+                    <input type="submit" value="Add" />
+                </form>
+            </div>
+        </div>
+    <% end %>
+</div>

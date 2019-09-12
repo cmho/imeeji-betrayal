@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Betrayal</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">Imeeji Betrayal</a></h1>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+
+    <%= javascript_include_tag 'application' %>
+  </body>
+</html>

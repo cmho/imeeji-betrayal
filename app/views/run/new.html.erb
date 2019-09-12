@@ -1,0 +1,14 @@
+<div class="content">
+    <h2>Add Run</h2>
+    <%= form_with model: @run, url: '/run/create', class: 'new-run-form' do |f| %>
+        <div class="form-item">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+        </div>
+        <div class="form-item">
+            <%= f.label :character_ids, "Characters" %>
+            <%= collection_select(:run, :character_ids, Character.all.order("name ASC"), :id, :name, {}, {:multiple => true}) %>
+        </div>
+        <input type="submit" value="Save" />
+    <% end %>
+</div>

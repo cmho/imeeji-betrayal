@@ -1,0 +1,167 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import url('https://fonts.googleapis.com/css?family=Carter+One|Livvic:400,400i,700,700i&display=swap');
+
+ body {
+     background-color: black;
+     color: white;
+     font-family: 'Livvic', sans-serif;
+ }
+
+ a {
+     color: white;
+     text-decoration: underline;
+
+     &:active,
+     &:hover {
+         color: red;
+     }
+ }
+
+ h1 {
+     color: red;
+     font-family: 'Carter One', sans-serif;
+     font-weight: normal;
+
+     a {
+         text-decoration: none;
+         color: red;
+     }
+ }
+
+ header, main {
+     margin: 0 auto;
+     text-align: left;
+     max-width: 960px;
+     width: 100%;
+ }
+
+ header {
+     border-bottom: 1px white solid;
+ }
+
+ main {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+ }
+
+.runs,
+.characters {
+    width: 49%;
+    min-width: 49%;
+    text-align: left;
+
+    h3, h4 {
+        margin: 0;
+    }
+
+    p {
+        margin-top: 0;
+    }
+    .unit {
+        margin-left: 28px;
+    }
+    @media only screen and (max-width: 767px) {
+        width: 100%;
+    }
+}
+
+.mod-form form {
+    display: flex;
+    align-items: flex-start;
+
+    input[type="submit"] {
+        margin-left: 5px;
+        margin-top: 20px;
+    }
+}
+
+.add-form {
+    display: none;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    font-size: 1em;
+    font-family: 'Livvic', sans-serif;
+    padding: 3px;
+    background-color: black;
+    color: white;
+    border: 1px red solid;
+    margin-bottom: 1em;
+}
+
+textarea {
+    min-width: 300px;
+    min-height: 150px;
+}
+
+select {
+    min-width: 200px;
+
+    &[multiple] {
+        min-height: 300px;
+    }
+}
+
+ .circle {
+     width: 16px;
+     height: 16px;
+     display: inline-block;
+     border: 1px white solid;
+     border-radius: 100%;
+     margin-right: 5px;
+     vertical-align: middle;
+ }
+
+ .char-content {
+     margin-left: 28px;
+
+     p, h4, ul {
+         margin: 0;
+     }
+
+     ul {
+
+     }
+ }
+
+ label {
+     display: block;
+     font-weight: bold;
+ }
+
+ input[type="submit"],
+ button {
+     background-color: white;
+     border: 1px red solid;
+     color: black;
+     font-weight: bold;
+     border-radius: 0;
+     text-transform: uppercase;
+     padding: 5px 10px;
+     position: relative;
+     font-family: 'Livvic', sans-serif;
+     font-size: 1em;
+
+     &:active {
+        top: 2px;
+     }
+ }

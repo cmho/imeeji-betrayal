@@ -1,0 +1,22 @@
+<div class="runs">
+    <h2>Runs</h2>
+    <% @runs.each do |run| %>
+        <h3><%= run.name %></h3>
+        <p><a href="/run/<%= run.id %>">Visit</a> | <a href="/run/<%= run.id %>/edit">Edit</a></p>
+    <% end %>
+    <p><a href="<%= run_new_path %>">Add</a></p>
+</div>
+<div class="characters">
+    <h2>Characters</h2>
+    <% Unit.all.order("id ASC").each do |unit| %>
+        <h3><div class="circle" style="background-color: <%= unit.color %>"></div> <%= unit.name %></h3>
+        <div class="unit">
+            <% unit.characters.order("name ASC").each do |char| %>
+                <h4><%= char.name %> <%= char.traitor? ? ' 😈' : '' %></h4>
+                <p><a href="/character/<%= char.id %>">View</a> | <a href="/character/<%= char.id %>/edit">Edit</a></p>
+            <% end %>
+        </div>
+    <% end %>
+    <br />
+    <p><a href="<%= new_character_path %>">Add</a></p>
+</div>
