@@ -1,5 +1,9 @@
 <div class="run-content">
     <h2><%= @run.name %></h2>
+    <div style="text-align: right">
+        <button type="button" id="reset-locations" data-run="<%= @run.id %>">Reset Locations</button>
+        <button type="button" id="reset-traitors" data-run="<%= @run.id %>">Reset Traitor Stats</button>
+    </div>
     <% @run.characters.order("name ASC").each do |char| %>
         <h3><div class="circle" style="background-color: <%= char.unit.color %>"></div> <%= char.name %> (<%= char.username%>)<%= char.traitor? ? ' 😈' : '' %></h3>
             <div class="char-content" data-char="<%= char.id %>">

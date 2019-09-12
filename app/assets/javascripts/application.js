@@ -13,6 +13,34 @@
 //= require jquery3.min
 //= require_tree .
 
+$('#reset-locations').on('click', function(e) {
+    var run = parseInt($(this).data('run'));
+    $.ajax({
+        url: '/reset_locations',
+        method: 'POST',
+        data: {
+            run_id: run
+        },
+        success: function(data) {
+            location.reload(true);
+        }
+    });
+});
+
+$('#reset-traitors').on('click', function(e) {
+    var run = parseInt($(this).data('run'));
+    $.ajax({
+        url: '/reset_traitors',
+        method: 'POST',
+        data: {
+            run_id: run
+        },
+        success: function(data) {
+            location.reload(true);
+        }
+    });
+});
+
 $('body').on('click', '.location-links a', function(e) {
     e.preventDefault();
     var char_id = parseInt($(this).data('char'));

@@ -86,4 +86,22 @@ class RunController < ActionController::Base
         @item = Item.find(params[:item])
         @item.delete
     end
+
+    def reset_locations
+        @run = Run.find(params[:run_id])
+        @run.characters.each do |char|
+            char.update_attributes!({location_id: char.unit.location_id})
+        end
+        render plain: "Done!"
+    end
+
+    def reset_traitors
+        @run = Run.find(params[:run_id])
+        @run.characters.each do |char|
+            if char.traitor?
+                CharacterRevision.where({character_id: char.id}).delete_all
+            end
+        end
+        render plain: "Done!"
+    end
 end

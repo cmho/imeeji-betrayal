@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   post 'modify_stats', to: 'run#modify_stats'
   post 'add_item', to: 'run#add_item'
   post 'discard_item', to: 'run#discard_item'
+  post 'reset_locations', to: 'run#reset_locations'
+  post 'reset_traitors', to: 'run#reset_traitors'
 end
