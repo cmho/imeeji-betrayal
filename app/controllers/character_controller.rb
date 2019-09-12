@@ -20,7 +20,7 @@ class CharacterController < ActionController::Base
 
     def update
         @character = Character.find(params[:id])
-        @character.update_attributes!({name: params[:character][:name], username: params[:character][:username], unit_id: params[:character][:unit_id], stat_build_id: params[:character][:stat_build_id]})
+        @character.update_attributes!({name: params[:character][:name], username: params[:character][:username], unit_id: params[:character][:unit_id], stat_build_id: params[:character][:stat_build_id], location_id: params[:character][:location_id]})
         redirect_to :root
     end
 end

@@ -14,6 +14,10 @@
             <%= collection_select :character, :unit_id, Unit.all, :id, :name %>
         </div>
         <div class="form-item">
+            <%= f.label :location_id, "Location" %>
+            <%= collection_select :character, :location_id, Location.all.order("id ASC"), :id, :name, {:selected => :location_id} %>
+        </div>
+        <div class="form-item">
             <%= f.label :stat_build_id, "Stat Build" %>
             <%= collection_select :character, :stat_build_id, StatBuild.all, :id, :name, {:selected => :stat_build_id} %>
         </div>
