@@ -1,6 +1,6 @@
 <div class="content">
     <h2>Edit Character</h2>
-    <%= form_with model: @character, url: character_index_path, class: 'new-character-form' do |f| %>
+    <%= form_with model: @character, url: character_path, class: 'new-character-form' do |f| %>
         <div class="form-item">
             <%= f.label :name %>
             <%= f.text_field :name %>
@@ -15,11 +15,11 @@
         </div>
         <div class="form-item">
             <%= f.label :location_id, "Location" %>
-            <%= collection_select :character, :location_id, Location.all.order("id ASC"), :id, :name, {:selected => :location_id} %>
+            <%= collection_select :character, :location_id, Location.all.order("id ASC"), :id, :name %>
         </div>
         <div class="form-item">
             <%= f.label :stat_build_id, "Stat Build" %>
-            <%= collection_select :character, :stat_build_id, StatBuild.all, :id, :name, {:selected => :stat_build_id} %>
+            <%= collection_select :character, :stat_build_id, StatBuild.all, :id, :name %>
         </div>
         <input type="submit" value="Save" />
     <% end %>

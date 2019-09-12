@@ -1,6 +1,6 @@
 <div class="content">
     <h2>Add Character</h2>
-    <%= form_with model: @character, url: character_index_path, class: 'new-character-form' do |f| %>
+    <%= form_with model: @character, url: character_index_path, method: 'POST', class: 'new-character-form' do |f| %>
         <div class="form-item">
             <%= f.label :name %>
             <%= f.text_field :name %>
